@@ -302,4 +302,9 @@
     <color name="materialColorSecondary">@color/system_secondary_light</color>
     <color name="materialColorTertiary">@color/system_tertiary_light</color>
     <color name="materialColorError">@color/system_error_light</color>
+    
+    <color name="qsb_icon_tint_primary">@android:color/system_accent1_600</color>
+    <color name="qsb_icon_tint_secondary">@android:color/system_accent1_500</color>
+    <color name="qsb_icon_tint_tertiary">@android:color/system_accent1_400</color> 
+    <color name="qsb_icon_tint_quaternary">@android:color/system_accent1_300</color>
 </resources>

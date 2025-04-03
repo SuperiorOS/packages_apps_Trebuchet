@@ -230,4 +230,11 @@
     <string name="restarting_launcher">Restarting launcher...</string>
     <string name="restarting_launcher_changes">Restarting launcher to apply changes...</string>
     <string name="updating_launcher_components">Restarting launcher to update launcher components...</string>
+
+    <!-- QSB -->
+    <string name="label_lens">Google Lens</string>
+    <string name="label_g_icon">Google App</string>
+    <string name="label_voice_search">Voice search</string>
+    <string name="label_search">Search</string>
+    <string name="pref_hotseat_enabled_title">Show hotseat search bar</string>
 </resources>

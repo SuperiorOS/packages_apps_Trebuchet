@@ -104,6 +104,12 @@
         android:persistent="true" />
 
     <SwitchPreferenceCompat
+        android:key="pref_hotseat_enabled"
+        android:title="@string/pref_hotseat_enabled_title"
+        android:defaultValue="true"
+        android:persistent="true" />
+
+    <SwitchPreferenceCompat
         android:key="pref_show_quickspace"
         android:title="@string/show_quickspace_title"
         android:summary="@string/show_quickspace_summary"

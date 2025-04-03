@@ -153,6 +153,7 @@ public class SettingsActivity extends FragmentActivity
             case Utilities.KEY_SHOW_QUICKSPACE_PSONALITY:
             case Utilities.KEY_SHOW_QUICKSPACE_WEATHER_CITY:
             case Utilities.KEY_SHOW_QUICKSPACE_WEATHER_TEXT:
+            case Utilities.KEY_HOTSEAT_ENABLED:
                 LauncherAppState.INSTANCE.executeIfCreated(app -> app.setNeedsRestart());
                 break;
             default:
@@ -332,6 +333,8 @@ public class SettingsActivity extends FragmentActivity
         protected boolean initPreference(Preference preference) {
             DisplayController.Info info = DisplayController.INSTANCE.get(getContext()).getInfo();
             switch (preference.getKey()) {
+                case Utilities.KEY_HOTSEAT_ENABLED:
+                    return !Utilities.isTablet(getContext());
                 case NOTIFICATION_DOTS_PREFERENCE_KEY:
                     return BuildConfig.NOTIFICATION_DOTS_ENABLED;
                 case ALLOW_ROTATION_PREFERENCE_KEY:
