@@ -128,8 +128,8 @@ public class QuickspaceController implements OmniJawsClient.OmniJawsObserver, Me
         boolean shouldShowCity = Utilities.QuickSpaceShowCity(mContext);
         boolean showWeatherText = Utilities.QuickSpaceShowWeatherText(mContext);
         if (mWeatherInfo != null) {
-            String weatherTemp = (shouldShowCity ? mWeatherInfo.city : "") + " " + mWeatherInfo.temp +
-                    mWeatherInfo.tempUnits + 
+            String weatherTemp = mWeatherInfo.temp + mWeatherInfo.tempUnits +
+                    (shouldShowCity ? " " + mWeatherInfo.city : "") +
                     (showWeatherText ? " · " + capitalizeWords(mWeatherInfo.condition) : "");
             return weatherTemp;
         }
