@@ -1041,16 +1041,6 @@ public final class Utilities {
         return prefs.getBoolean(KEY_SHOW_QUICKSPACE_WEATHER, true);
     }
 
-    public static boolean QuickSpaceShowCity(Context context) {
-        SharedPreferences prefs = LauncherPrefs.getPrefs(context.getApplicationContext());
-        return prefs.getBoolean(KEY_SHOW_QUICKSPACE_WEATHER_CITY, false);
-    }
-
-    public static boolean QuickSpaceShowWeatherText(Context context) {
-        SharedPreferences prefs = LauncherPrefs.getPrefs(context.getApplicationContext());
-        return prefs.getBoolean(KEY_SHOW_QUICKSPACE_WEATHER_TEXT, true);
-    }
-
     public static boolean hotseatEnabled(Context context) {
         if (isTablet(context)) {
             return false;

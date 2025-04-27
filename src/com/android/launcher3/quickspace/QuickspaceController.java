@@ -125,29 +125,12 @@ public class QuickspaceController implements OmniJawsClient.OmniJawsObserver, Me
     }
 
     public String getWeatherTemp() {
-        boolean shouldShowCity = Utilities.QuickSpaceShowCity(mContext);
-        boolean showWeatherText = Utilities.QuickSpaceShowWeatherText(mContext);
         if (mWeatherInfo != null) {
             String weatherTemp = mWeatherInfo.temp + mWeatherInfo.tempUnits +
-                    (shouldShowCity ? " " + mWeatherInfo.city : "") +
-                    (showWeatherText ? " · " + capitalizeWords(mWeatherInfo.condition) : "");
+                    " " + mWeatherInfo.city;
             return weatherTemp;
         }
         return null;
-    }
-
-    private String capitalizeWords(String input) {
-        if (input == null || input.isEmpty()) return input;
-        String[] words = input.split("\\s+");
-        StringBuilder capitalized = new StringBuilder();
-        for (String word : words) {
-            if (!word.isEmpty()) {
-                capitalized.append(Character.toUpperCase(word.charAt(0)))
-                           .append(word.substring(1).toLowerCase())
-                           .append(" ");
-            }
-        }
-        return capitalized.toString().trim();
     }
 
     public void onPause() {
