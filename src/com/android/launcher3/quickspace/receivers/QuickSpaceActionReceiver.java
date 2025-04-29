@@ -55,7 +55,7 @@ public class QuickSpaceActionReceiver {
         mWeatherClickListener = new OnClickListener() {
             @Override
             public void onClick(View view) {
-                openGoogleWeather(view);
+                openOmniWeather(view);
             }
         };
     }
@@ -74,15 +74,14 @@ public class QuickSpaceActionReceiver {
         }
     }
 
-    private void openGoogleWeather(View view) {
+    private void openOmniWeather(View view) {
         Intent intent = new Intent("android.intent.action.VIEW");
-        intent.setData(Uri.parse("dynact://velour/weather/ProxyActivity"));
-        intent.setComponent(new ComponentName("com.google.android.googlequicksearchbox", "com.google.android.apps.gsa.velour.DynamicActivityTrampoline"));
+        intent.setComponent(new ComponentName("org.omnirom.omnijaws", "org.omnirom.omnijaws.WeatherActivity"));
         try {
             Launcher.getLauncher(mContext).startActivitySafely(view, intent, null);
         } catch (ActivityNotFoundException ex) {
-            mLauncherApps.startAppDetailsActivity(new ComponentName("com.google.android.googlequicksearchbox",
-                    "com.google.android.apps.gsa.velour.DynamicActivityTrampoline"), Process.myUserHandle(), null, null);
+            mLauncherApps.startAppDetailsActivity(new ComponentName("org.omnirom.omnijaws",
+                    "org.omnirom.omnijaws.WeatherActivity"), Process.myUserHandle(), null, null);
         }
     }
 
