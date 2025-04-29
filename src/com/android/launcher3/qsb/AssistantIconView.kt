@@ -43,7 +43,7 @@ class AssistantIconView @JvmOverloads constructor(
 
     private fun launchAssistant() {
         if (!isGoogleInstalled) return
-        val intent = Intent("android.intent.action.VOICE_ASSIST").apply {
+        val intent = Intent("android.intent.action.VOICE_COMMAND").apply {
             putExtra("onesearch_request_type", "TapMicIcon")
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
             setPackage(Utilities.GSA_PACKAGE)
