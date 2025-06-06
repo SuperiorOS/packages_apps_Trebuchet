@@ -49,7 +49,9 @@ import com.android.launcher3.Utilities;
 import java.util.Calendar;
 import java.util.concurrent.ThreadLocalRandom;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.android.launcher3.util.MediaSessionManagerHelper;
 import com.android.launcher3.util.MSMHProxy;
@@ -69,6 +71,8 @@ public class QuickEventsController {
 
     private boolean mIsQuickEvent = false;
     private boolean mRegistered = false;
+    
+    private final Map<Integer, String[]> mCachedPSAMap = new HashMap<>();
 
     // Device Intro
     private boolean mIsFirstTimeDone = false;
@@ -276,15 +280,15 @@ public class QuickEventsController {
 
     private String[] getPSAStr(int hour) {
         if (hour >= 0 && hour <= 3) {
-            return mResources.getStringArray(R.array.quickspace_psa_midnight);
+            return getCachedArray(R.array.quickspace_psa_midnight);
         } else if (hour >= 5 && hour <= 9) {
-            return mResources.getStringArray(R.array.quickspace_psa_morning);
+            return getCachedArray(R.array.quickspace_psa_morning);
         } else if (hour >= 12 && hour <= 15) {
-            return mResources.getStringArray(R.array.quickspace_psa_noon);
+            return getCachedArray(R.array.quickspace_psa_noon);
         } else if (hour >= 16 && hour <= 18) {
-            return mResources.getStringArray(R.array.quickspace_psa_early_evening);
+            return getCachedArray(R.array.quickspace_psa_early_evening);
         } else if (hour >= 19 && hour <= 21) {
-            return mResources.getStringArray(R.array.quickspace_psa_evening);
+            return getCachedArray(R.array.quickspace_psa_evening);
         } else {
             return null;
         }
@@ -346,5 +350,12 @@ public class QuickEventsController {
 
     public void onResume() {
         registerPSAListener();
+    }
+    
+    private String[] getCachedArray(int resId) {
+        if (!mCachedPSAMap.containsKey(resId)) {
+            mCachedPSAMap.put(resId, mResources.getStringArray(resId));
+        }
+        return mCachedPSAMap.get(resId);
     }
 }
